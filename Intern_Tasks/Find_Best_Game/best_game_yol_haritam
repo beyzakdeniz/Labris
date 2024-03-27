@@ -1,0 +1,25 @@
+Option 3: manual installation
+
+   # install requirements from requirements.txt
+    pip install scapy==2.4.0
+    sudo apt-get install -y python-pycryptodome
+    pip install tinyec
+    
+
+   # locate < scapy > installation directory: python -c "import scapy; print (scapy.__file__)"
+
+   # copy scapy_ssl_tls/* to < scapy >/layers/
+    cp /home/beyza/Desktop/"Intern Tasks"/"Find Best Game"/scapy-ssl_tls-master/scapy_ssl_tls/* .
+
+   # modify < scapy >/config.py to autoload SSL/TLS
+
+@@ -373,3 +373,3 @@
+load_layers = ["l2", "inet", "dhcp", "dns", "dot11", "gprs", "hsrp", "inet6", "ir", "isakmp", "l2tp",
+-                   "mgcp", "mobileip", "netbios", "netflow", "ntp", "ppp", "radius", "rip", "rtp",
++                   "mgcp", "mobileip", "netbios", "netflow", "ntp", "ppp", "radius", "rip", "rtp","ssl_tls",
+                  "sebek", "skinny", "smb", "snmp", "tftp", "x509", "bluetooth", "dhcp6", "llmnr", "sctp", "vrrp" ]
+
+
+from scapy.layers.ssl_tls import SSL
+
+

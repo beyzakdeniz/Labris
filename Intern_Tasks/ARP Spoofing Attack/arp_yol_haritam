@@ -1,0 +1,23 @@
+sudo apt install vagrant
+
+# determine if Kernel-based Virtual Machine (KVM) can be utilized effectively
+kvm-ok
+
+# vagrantfile to Vagrantfile
+
+sudo apt update
+sudo apt install qemu qemu-kvm libvirt-clients libvirt-daemon-system virtinst bridge-utils
+sudo setfacl -m user:$USER:rw /var/run/libvirt/libvirt-sock
+sudo systemctl enable libvirtd
+sudo systemctl start libvirtd
+sudo update-grub
+
+vagrant up
+
+sudo chmod +x /usr/bin/dumpcap
+
+# attacker machine'de spoofing.py dosyası aç
+
+# answer = scapy.srp(final_packet, iface="eth1", timeout=2, verbose=False)[0] iface kısmını ve victim, router ip'lerini ayarla
+
+# wireshark / tcpdump veya scapy ile paketleri görüntüle 

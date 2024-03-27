@@ -1,0 +1,84 @@
+pip install flask
+
+# create a virtual environment and install Flask
+mkdir flask-api-tutorial
+cd flask-api-tutorial
+python3 -m venv env
+source env/bin/activate
+
+pip install flask
+pip install flask-restful
+pip install Flask psycopg2-binary
+pip install Flask-SQLAlchemy
+
+# latest version does not work properly
+pip install Flask-Migrate==3.1.0
+pip install --force-reinstall -v "Flask-Migrate==3.1.0"
+
+sudo apt update
+sudo apt install postgresql postgresql-contrib
+sudo systemctl start postgresql.service
+
+
+sudo -iu postgres psql
+CREATE DATABASE flask_db;
+CREATE USER beyza WITH PASSWORD 'labris';
+ALTER USER beyza WITH SUPERUSER;
+\du
+GRANT ALL PRIVILEGES ON DATABASE db TO beyza;
+\l
+\conninfo
+
+export DB_USERNAME="beyza"
+export DB_PASSWORD="labris"
+
+# Connect to the flask_db database using the \c command
+\c flask_db
+
+INSERT INTO users (username, firstname, middlename, lastname, birthdate, email, password)
+VALUES ('john_doe', 'John', NULL, 'Doe', '1990-01-01', 'john@example.com', 'password123');
+
+INSERT INTO users (username, firstname, middlename, lastname, birthdate, email, password)
+VALUES ('jane_smith', 'Jane', 'Maria', 'Smith', '1985-05-15', 'jane@example.com', 'securepassword');
+
+
+# Display (\d) all its tables (\t)
+\dt
+
+export FLASK_APP=app (name of the .py file that will be executed)
+export FLASK_ENV=development
+
+# In venv
+flask shell
+>>> from app import db, User
+>>> new_user = User(username='john_doe', firstname='John', lastname='Doe', birthdate=datetime(1990, 5, 15), email='john@example.com', password='hashed_password_here')
+>>> db.session.add(new_user)
+>>> db.session.commit()
+>>> db.create_all()
+
+
+# Create our tables
+(.venv) > export FLASK_APP=app
+(.venv) > flask db init
+(.venv) > flask db migrate
+(.venv) > flask db upgrade
+
+
+*** https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-20-04
+
+sudo /etc/init.d/apache2 stop
+sudo systemctl restart nginx
+
+mv /var/www/html/index.html index.html_bkp
+
+sudo cat /etc/nginx/nginx.conf
+sudo cat /etc/nginx/sites-enabled/default
+
+*** https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-uwsgi-and-nginx-on-ubuntu-20-04
+
+
+
+
+
+
+

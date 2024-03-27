@@ -1,0 +1,12 @@
+{% extends "main/base.html" %}
+
+{% block title %}
+    Home Page
+{% endblock %}
+
+{% block content %}
+    <h1>Welcome, {{ user.username }}!</h1>
+    <div class="wrapper">
+       <img src="{{ url_for('static', filename='gibrowalker.png' ) }}" class="img-responsive" alt="Responsive image">
+    </div>
+{% endblock %}

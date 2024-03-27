@@ -1,0 +1,9 @@
+To create user tests for the PHPTRAVELS using Selenium IDE (Check test scenarios document).
+
+Setting up the PHPTRAVELS demo account form link.
+
+Recording user tests: We will use Selenium IDE to record user tests .
+
+Writing test scripts: We will convert the recorded user tests into Python test scripts using Selenium WebDriver. Test will be ran for different browsers (Chrome, Firefox, Edge, IE, Safari)
+
+
